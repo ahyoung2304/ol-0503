@@ -60,6 +60,8 @@
 //   map.addOverlay(marker);
 // }
 //========================= gpt 222========================
+
+
 import 'ol/ol.css';
 import Map from 'ol/Map';
 import View from 'ol/View';
@@ -72,8 +74,8 @@ import {toStringXY} from 'ol/coordinate';
 const locations = [
   {position: [127.1058349, 37.3599968], name: '서울', icon: 'https://openlayers.org/en/latest/examples/data/icon.png'},
   {position: [126.978426, 37.5666103], name: '서울역', icon: 'https://openlayers.org/en/latest/examples/data/icon.png'},
-  {position: [126.9778688, 37.566425], name: '우리집',icon: 'https://openlayers.org/en/latest/examples/data/icon.png'},
-  {position: [126.943807, 37.557678], name: '이대역',icon: 'https://openlayers.org/en/latest/examples/data/icon.png'},
+  {position: [126.9778688, 37.566425], name: '우리집', icon: 'https://openlayers.org/en/latest/examples/data/icon.png'},
+  {position: [126.943807, 37.557678], name: '이대역', icon: 'https://openlayers.org/en/latest/examples/data/icon.png'},
 ];
 
 const map = new Map({
@@ -103,35 +105,41 @@ for (const location of locations) {
   });
 
 
-  // const content = document.createElement('div');
-  // content.innerHTML = location.name;
-  // marker.getElement().appendChild(content);
-  // map.addOverlay(marker);
-  const content = document.createElement('div');
-  content.innerHTML = location.name;
-  marker.getElement().setAttribute('src', location.icon);
-  marker.getElement().setAttribute('class', 'marker');
-  marker.getElement().appendChild(content);
-  map.addOverlay(marker);
+// const content = document.createElement('div');
+// content.innerHTML = location.name;
+// marker.getElement().appendChild(content);
+// map.addOverlay(marker);
+const content = document.createElement('div');
+content.innerHTML = location.name;
+marker.getElement().setAttribute('src', location.name);
+marker.getElement().setAttribute('class', 'marker');
+marker.getElement().appendChild(content);
+map.addOverlay(marker);
 
 
 
 
   // 클릭 이벤트 추가
-  marker.getElement().addEventListener('click', (evt) => {
+marker.getElement().addEventListener('click', (evt) => {
     console.log('marker click')
     const coordinate = marker.getPosition();
-    const pixel = map.getPixelFromCoordinate(coordinate);
-    const feature = map.forEachFeatureAtPixel(pixel, (feature) => {
-      return feature;
-    });
-    alert(feature);
+    // const pixel = map.getPixelFromCoordinate(coordinate);
+    // const feature = map.forEachFeatureAtPixel(pixel, (feature) => {
+    //   return feature;
+    // });
+    // console.log(coordinate)
+    // console.log(pixel)
+    // console.log(map.forEachFeatureAtPixel(pixel))
+    console.log(coordinate)
+    alert(coordinate);
 
-    if (feature) {
-      const geometry = feature.getGeometry();
-      const coord = geometry.getCoordinates();
-      const hdms = toStringXY(coord, 2);
-      alert(location.name + '\n' + hdms);
-    }
+    // if (feature) {
+    //   const geometry = feature.getGeometry();
+    //   const coord = geometry.getCoordinates();
+    //   const hdms = toStringXY(coord, 2);
+    //   alert(location.name + '\n' + hdms);
+    // }
   });
 }
+
+//===========================국토정보플랫폼=====================================

@@ -9,12 +9,13 @@
   "devDependencies": {
     "vite": "^4.0.4"
   },
-  "dependencies": {
-    "ol": "^6.5.0"
-  },
   "description": "This example demonstrates how the `ol` package can be used with [Vite](https://vitejs.dev/).",
   "main": "main.js",
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.6.4",
+    "ol": "^6.15.1"
+  }
 }
