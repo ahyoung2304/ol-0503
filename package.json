@@ -16,6 +16,6 @@
   "license": "ISC",
   "dependencies": {
     "jquery": "^3.6.4",
-    "ol": "^6.15.1"
+    "ol": "^7.3.0"
   }
 }
